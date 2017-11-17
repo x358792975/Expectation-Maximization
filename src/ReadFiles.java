@@ -14,18 +14,24 @@ public class ReadFiles {
 	
 	public ReadFiles(String fileName, int num) throws IOException{
 		Scanner scan = new Scanner(new File(fileName));
+		
+		List<String> genderList = new ArrayList<String>();
+		List<String> weightList = new ArrayList<String>();
+		List<String> heightList = new ArrayList<String>();
 
-		List<String[]> myList = new ArrayList<String[]>();
 		System.out.println(scan.nextLine());
 		System.out.println("******************");
 		while(scan.hasNext()){
-			new ParseString(scan.nextLine(),myList);
-			//System.out.println(scan.nextLine());
+			ParseString parse = new ParseString();
+			parse.makeList(scan.nextLine(),genderList, weightList, heightList);
 		}
-		System.out.println(myList.size());
-		for(int i=0; i<20; i++){
-			System.out.println(Arrays.deepToString(myList.get(i)));
-		}
+		
+		Calculation Cal = new Calculation();
+		Gender gender = new Gender(Cal.CalPro(genderList));
+		Weight weight = new Weight(Cal.CalPro(weightList));
+		Gender height = new Gender(Cal.CalPro(heightList));
+
+		System.out.println(gender.getPrabability() + " " + weight.getPrabability() + " " + height.getPrabability());
 
 	}
 }

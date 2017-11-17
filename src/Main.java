@@ -10,7 +10,7 @@ public class Main {
 		for(int i=0; i<fileNumber.length;i++){
 			String pre = "hw2dataset_";
 			String fileName = pre+fileNumber[i]+".txt";
-			System.out.println(fileName);
+			//System.out.println(fileName);
 			try {
 				new ReadFiles(fileName,Integer.parseInt(fileNumber[i]));
 			} catch (IOException e) {

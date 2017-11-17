@@ -3,18 +3,10 @@ import java.util.List;
 
 public class ParseString {
 
-
-	
-	public ParseString(String str, List<String[]> myList){
+	public void makeList(String str, List<String> gender, List<String> weight, List<String> height){
 		String[] myarr = str.split("\\s+");
-		myList.add(myarr);
-		//System.out.println("Size of list " + myList.size());
-		//System.out.println("**************");
-		//System.out.println(myarr[1]);
-		
-		for(int i=0; i<myarr.length;i++){
-			//System.out.print(myarr[i]);
-		}
-		//System.out.println("");
+		gender.add(myarr[0]);
+		weight.add(myarr[1]);
+		height.add(myarr[2]);
 	}
 }
