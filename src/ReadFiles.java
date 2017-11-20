@@ -35,11 +35,11 @@ public class ReadFiles {
 		/*for(int i=0; i<missingList.size(); i++){
 			
 			System.out.println(missingList.get(i));
-		}*/
+		}
 		System.out.println("P(W=1) is " + m.getP_W1());
 		System.out.println("P(W=0) is " + m.getP_W0());
 		System.out.println("P(H=1) is " + m.getP_H1());
 		System.out.println("P(H=0) is " + m.getP_H0());
-
+		*/
 	}
 }

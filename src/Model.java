@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class Model {
 	private float[] P_G = {0.7f,0.3f};
@@ -73,9 +72,7 @@ public class Model {
 	public String getEM(int g, int w, int h){
 		int g_xor = g;
 		return  String.valueOf(this.getP_GWH(g,w, h)/( this.getP_GWH(g,w,h)+ this.getP_GWH(g_xor, w, h)));
-				//(this.getP_GWH(g,w, h)/( this.getP_GWH(g,w,h)+ this.getP_GWH(g_xor, w, h))).toString();
+
 	}
 	
-
-
 }
