@@ -1,19 +1,36 @@
 import java.util.List;
 
 public class Calculation {
-	public Calculation(){
-		
-	}
-	
 	public float CalPro(List<String> dataset){
-		float prob = 0.0f;
+		float[] prob = new float[2];
 		int count =0;		
 		for(int i=0; i<dataset.size();i++){
 			if ((dataset.get(i)).equals("1")) count++;
 		}
 		System.out.println("Count is " + count);
-		prob = (float)count/dataset.size();
-		System.out.println("Probability is  " + prob);
-		return prob;
+		prob[1] = (float)count/dataset.size();
+		prob[0] = 1 - prob[1];
+		System.out.println("Probability is  " + prob[1]);
+		return prob[1];
+	}
+	
+	public float CalPro(List<String> dataset, List<Integer> missingList){
+		float[] prob = new float[2];
+		int count =0;		
+		for(int i=0; i<dataset.size();i++){
+			if ((dataset.get(i)).equals("1")) count++;
+			else if (dataset.get(i).equals("0")){
+				continue;
+			}
+			else {
+				missingList.add(i);
+				//dataset.set(i, getEM(1,1,1));
+			}
+		}
+		System.out.println("Count is " + count);
+		prob[1] = (float)count/dataset.size();
+		prob[0] = 1 - prob[1];
+		System.out.println("Probability is  " + prob[1]);
+		return prob[1];
 	}
 }
