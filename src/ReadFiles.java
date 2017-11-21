@@ -1,4 +1,5 @@
 import java.io.File;
+import java.math.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,14 +12,14 @@ public class ReadFiles {
 	public ReadFiles(String fileName, int num) throws IOException{
 		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(new File(fileName));
-		
+		float likelihood = 0.00000f;
 		List<String> genderList = new ArrayList<String>();
 		List<String> weightList = new ArrayList<String>();
 		List<String> heightList = new ArrayList<String>();
 		
 		List<Integer> missingList= new ArrayList<Integer>(); 
 
-		//System.out.println(scan.nextLine());
+		System.out.println(scan.nextLine());
 		//System.out.println("******************");
 		while(scan.hasNext()){
 			ParseString parse = new ParseString();
@@ -93,8 +94,15 @@ public class ReadFiles {
 		System.out.println("P(H=0) is " + m.getP_H0());
 		
 		for(int i=0 ;i < genderList.size();i++){
-			System.out.println(genderList.get(i));
+			System.out.println(weightList.get(i));
 		}*/
+		
+		for(int i=0; i<genderList.size();i++){
+			likelihood += m.getP_GWH(Integer.parseInt(genderList.get(i)), Integer.parseInt(weightList.get(i)), Integer.parseInt(heightList.get(i)));
+		}/**/
+
+		System.out.println(likelihood);
+		System.out.println(Math.log(likelihood));
 	}
 	public String replaceMissing(float prob){
 		if(prob >= 0.5) return "1";
