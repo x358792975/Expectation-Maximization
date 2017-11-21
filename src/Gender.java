@@ -5,6 +5,9 @@ public class Gender {
 		this.probability = probability;
 	}
 	
+	public void setPrabability(float probability){
+		this.probability = probability;
+	}
 	public float getPrabability(){
 		return probability;
 	}

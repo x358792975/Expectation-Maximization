@@ -15,6 +15,32 @@ public class Model {
 		this.P_H0 = 1-P_H1;
 	}
 	
+	public void setP_G(int index, float data){
+		if(index ==1){
+			P_G[1] = data;
+			P_G[0] = 1- data;
+		}
+		else if(index == 0){
+			P_G[0] = data;
+			P_G[1] = 1-data;
+		}
+		
+	}
+	public void setP_WG(float a, float b, float c, float d){
+		P_WG[0][0] = a;
+		P_WG[0][1] = b;
+		P_WG[1][0] = c;
+		P_WG[1][1] = d;
+		
+	}
+	public void setP_HG(float a, float b, float c, float d){
+		P_HG[0][0] = a;
+		P_HG[0][1] = b;
+		P_HG[1][0] = c;
+		P_HG[1][1] = d;
+		
+	}
+	
 	//P(W=1)
 	public float getP_W1(){
 		return this.P_W1;
