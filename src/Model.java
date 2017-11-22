@@ -95,10 +95,45 @@ public class Model {
 		return getP_WG(w,g) * getP_HG(h,g) * getP_G(g); 
 	}
 	
-	public String getEM(int g, int w, int h){
-		int g_xor = g;
-		return  String.valueOf(this.getP_GWH(g,w, h)/( this.getP_GWH(g,w,h)+ this.getP_GWH(g_xor, w, h)));
+	public float getEM(int g, int w, int h){
+		int g_xor = g^1;
+		return  this.getP_GWH(g,w, h)/( this.getP_GWH(g,w,h)+ this.getP_GWH(g_xor, w, h));
 
 	}
-	
+	public float getG_WH(int g_val, int w_val, int h_val) {
+		    int g_val_xor = g_val^1;
+		    return (
+		      this.getP_GWH(g_val, w_val, h_val)/(this.getP_GWH(g_val, w_val, h_val) + this.getP_GWH(g_val_xor, w_val, h_val))
+		      );
+		  }
+	public void printResult(int iteration){
+		System.out.println("Iteration "+iteration);
+		System.out.println("P(G=0) = "+ this.getP_G(0) + "     P(G=1) " + this.getP_G(1));
+		System.out.println("P(W = 0| G =0) " + this.getP_WG(0, 0));
+		System.out.println("P(W = 0| G =1) " + this.getP_WG(0, 1));
+		System.out.println("P(W = 1| G =0) " + this.getP_WG(1, 0));
+		System.out.println("P(W = 1| G =1) " + this.getP_WG(1, 1));
+		
+		System.out.println("P(H = 0| G =0) " + this.getP_HG(0, 0));
+		System.out.println("P(H = 0| G =1) " + this.getP_HG(0, 1));
+		System.out.println("P(H = 1| G =0) " + this.getP_HG(1, 0));
+		System.out.println("P(H = 1| G =1) " + this.getP_HG(1, 1));
+		System.out.println("----------------------------------");
+		
+	}
+	public void printResult(){
+		System.out.println("Final Result");
+		System.out.println("P(G=0) = "+ this.getP_G(0) + "     P(G=1) " + this.getP_G(1));
+		System.out.println("P(W = 0| G =0) " + this.getP_WG(0, 0));
+		System.out.println("P(W = 0| G =1) " + this.getP_WG(0, 1));
+		System.out.println("P(W = 1| G =0) " + this.getP_WG(1, 0));
+		System.out.println("P(W = 1| G =1) " + this.getP_WG(1, 1));
+		
+		System.out.println("P(H = 0| G =0) " + this.getP_HG(0, 0));
+		System.out.println("P(H = 0| G =1) " + this.getP_HG(0, 1));
+		System.out.println("P(H = 1| G =0) " + this.getP_HG(1, 0));
+		System.out.println("P(H = 1| G =1) " + this.getP_HG(1, 1));
+		System.out.println("----------------------------------");
+		
+	}
 }

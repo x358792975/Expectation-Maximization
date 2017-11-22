@@ -43,15 +43,15 @@ public class Calculation {
 		//System.out.println((float) count/20);
 		return (float) count/20;
 	}
-	public float CountComb(List<String> list1,String index1, List<String> list2, String index2){
-		float prob = 0.00f;
+	public float CountComb(List<String> list1,String index1, List<String> list2, String index2,int count_P){
+		float prob = 0.0000000f;
 		int count = 0;
 		for(int i=0; i<list1.size();i++){
 			if((list1.get(i).equals(index1) ) && (list2.get(i).equals(index2))){
 				count++;
 			}
 		}
-		prob = (float)count/20;
+		prob = (float)count/count_P;
 		//System.out.println(" P_0_G_0 = "+ prob);
 		return prob;
 	}
